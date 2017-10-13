@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator> (); 
 		rb = GetComponent<Rigidbody2D> (); 
+
+		DontDestroyOnLoad (transform.gameObject);
 		
 	}
 	

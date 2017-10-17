@@ -11,16 +11,26 @@ public class PlayerController : MonoBehaviour {
 
 	private bool playerMoving;  
 
-	private Vector2 lastMove; 
+	public Vector2 lastMove; 
 
 	private Rigidbody2D rb; 
+
+	private static bool playerExists; 
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> (); 
 		rb = GetComponent<Rigidbody2D> (); 
 
-		DontDestroyOnLoad (transform.gameObject);
+		if (!playerExists) {
+			playerExists = true; 
+			DontDestroyOnLoad (transform.gameObject);
+
+		} else {
+			Destroy (gameObject);
+
+		}
+
 		
 	}
 	
